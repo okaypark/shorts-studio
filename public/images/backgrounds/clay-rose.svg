@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+<defs>
+<linearGradient id="g_clay-rose" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0%" stop-color="#3B1A1A"/>
+<stop offset="60%" stop-color="#170B0B"/>
+<stop offset="100%" stop-color="#170B0B"/>
+</linearGradient>
+<radialGradient id="b0_clay-rose"><stop offset="0%" stop-color="#8A3B36" stop-opacity="0.55"/><stop offset="100%" stop-color="#8A3B36" stop-opacity="0"/></radialGradient><radialGradient id="b1_clay-rose"><stop offset="0%" stop-color="#E8A29B" stop-opacity="0.22"/><stop offset="100%" stop-color="#E8A29B" stop-opacity="0"/></radialGradient><radialGradient id="b2_clay-rose"><stop offset="0%" stop-color="#8A3B36" stop-opacity="0.55"/><stop offset="100%" stop-color="#8A3B36" stop-opacity="0"/></radialGradient><radialGradient id="b3_clay-rose"><stop offset="0%" stop-color="#E8A29B" stop-opacity="0.22"/><stop offset="100%" stop-color="#E8A29B" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1080" height="1920" fill="url(#g_clay-rose)"/>
+<circle cx="137" cy="1951" r="736" fill="url(#b0_clay-rose)" opacity="0.46"/><circle cx="-10" cy="1710" r="880" fill="url(#b1_clay-rose)" opacity="0.52"/><circle cx="1025" cy="1447" r="623" fill="url(#b2_clay-rose)" opacity="0.39"/><circle cx="92" cy="1812" r="744" fill="url(#b3_clay-rose)" opacity="0.39"/>
+<line x1="-200" y1="2120" x2="200" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="-20" y1="2120" x2="380" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="160" y1="2120" x2="560" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="340" y1="2120" x2="740" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="520" y1="2120" x2="920" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="700" y1="2120" x2="1100" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="880" y1="2120" x2="1280" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="1060" y1="2120" x2="1460" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="1240" y1="2120" x2="1640" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/><line x1="1420" y1="2120" x2="1820" y2="-200" stroke="#E8A29B" stroke-opacity="0.05" stroke-width="1.5"/>
+</svg>

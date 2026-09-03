@@ -1,0 +1,33 @@
+{
+  "slug": "vitamin-d-morning",
+  "provider": "dev",
+  "voice": null,
+  "generatedAt": "2026-09-03T12:36:05.355Z",
+  "totalSeconds": 17.784,
+  "takes": [
+    {
+      "id": "hook",
+      "file": "audio/vitamin-d-morning/01.mp3",
+      "text": "창가에 앉아 있어도 유리는 자외선B를 거의 통과시키지 않습니다.",
+      "seconds": 5.064
+    },
+    {
+      "id": "point",
+      "file": "audio/vitamin-d-morning/02.mp3",
+      "text": "유리창을 사이에 두면 그 파장이 대부분 걸러집니다.",
+      "seconds": 4.128
+    },
+    {
+      "id": "steps",
+      "file": "audio/vitamin-d-morning/03.mp3",
+      "text": "피부가 붉어질 때까지 있을 필요는 없습니다. 짧고 자주가 낫습니다.",
+      "seconds": 5.208
+    },
+    {
+      "id": "cta",
+      "file": "audio/vitamin-d-morning/04.mp3",
+      "text": "가장 쉬운 시작은 점심시간 산책입니다.",
+      "seconds": 3.384
+    }
+  ]
+}

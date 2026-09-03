@@ -1,0 +1,37 @@
+{
+  "name": "shorts-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "대본을 쓰면 숏폼 영상이 나오는 공용 제작 저장소",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "studio": "remotion studio",
+    "make": "remotion render",
+    "list": "remotion compositions",
+    "still": "remotion still",
+    "update": "node scripts/update.mjs",
+    "new": "node scripts/new-video.mjs",
+    "typecheck": "tsc --noEmit",
+    "voice": "node scripts/voice.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.520",
+    "@remotion/fonts": "4.0.520",
+    "@remotion/media-utils": "4.0.520",
+    "@remotion/shapes": "4.0.520",
+    "@remotion/transitions": "4.0.520",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.520",
+    "remotion-animated": "2.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.0",
+    "typescript": "5.9.2"
+  },
+  "remotion": {
+    "entrypoint": "src/index.ts"
+  }
+}

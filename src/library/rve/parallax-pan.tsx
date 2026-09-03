@@ -1,0 +1,73 @@
+"use client";
+// [shorts-studio] Next.js 전용 코드를 Remotion에 맞게 고쳤습니다: next/image -> remotion Img, <style jsx> -> <style>
+import React from "react";
+import { Img } from "remotion";
+interface ParallaxPanProps {
+  imageUrl?: string;
+  duration?: number;
+  direction?: "left-right" | "right-left" | "top-bottom" | "bottom-top";
+  scale?: number;
+}
+
+export const ParallaxPan: React.FC<ParallaxPanProps> = ({
+  imageUrl = "https://images.pexels.com/photos/1644724/pexels-photo-1644724.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  duration = 15,
+  direction = "left-right",
+  scale = 1.2,
+}) => {
+  const getKeyframes = () => {
+    switch (direction) {
+      case "left-right":
+        return `
+          0% { transform: translateX(0) scale(${scale}); }
+          100% { transform: translateX(-20%) scale(${scale}); }
+        `;
+      case "right-left":
+        return `
+          0% { transform: translateX(-20%) scale(${scale}); }
+          100% { transform: translateX(0) scale(${scale}); }
+        `;
+      case "top-bottom":
+        return `
+          0% { transform: translateY(0) scale(${scale}); }
+          100% { transform: translateY(-20%) scale(${scale}); }
+        `;
+      case "bottom-top":
+        return `
+          0% { transform: translateY(-20%) scale(${scale}); }
+          100% { transform: translateY(0) scale(${scale}); }
+        `;
+    }
+  };
+
+  return (
+    <div
+      style={{
+        flex: 1,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "black",
+        overflow: "hidden",
+      }}
+    >
+      <Img
+        src={imageUrl}
+        alt="Parallax Pan"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          animation: `parallaxPan ${duration}s ease-out infinite alternate`,
+        }}
+      />
+      <style>{`
+        @keyframes parallaxPan {
+          ${getKeyframes()}
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default ParallaxPan;
