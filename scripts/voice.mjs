@@ -2,6 +2,7 @@
  * 내레이션 음성을 만들고, 그 길이를 재서 남깁니다.
  *
  *   npm run voice -- vitamin-d-morning
+ *   npm run voice -- vitamin-d-morning --provider edge
  *   npm run voice -- vitamin-d-morning --provider windows
  *   npm run voice -- vitamin-d-morning --provider melotts
  *
@@ -26,7 +27,7 @@ const args = process.argv.slice(2);
 const slug = args.find((a) => !a.startsWith("--"));
 const providerName = (() => {
   const i = args.indexOf("--provider");
-  return i >= 0 ? args[i + 1] : "windows";
+  return i >= 0 ? args[i + 1] : "edge";
 })();
 
 if (!slug) {
@@ -77,7 +78,7 @@ const main = async () => {
 
   const provider = await import(`./tts/${providerName}.mjs`).catch(() => null);
   if (!provider) {
-    console.log(`모르는 제공자입니다: ${providerName}  (windows | melotts | dev)`);
+    console.log(`모르는 제공자입니다: ${providerName}  (edge | melotts | windows | dev)`);
     process.exit(1);
   }
 

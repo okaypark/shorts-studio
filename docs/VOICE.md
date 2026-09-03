@@ -58,21 +58,32 @@
 ## 목소리 고르기
 
 ```
-npm run voice -- <슬러그> --provider windows   (기본값)
+npm run voice -- <슬러그> --provider edge      (기본값)
 npm run voice -- <슬러그> --provider melotts
+npm run voice -- <슬러그> --provider windows
 npm run voice -- <슬러그> --provider dev
 ```
 
 | 제공자 | 품질 | 설치 | 상업 이용 |
 |---|---|---|---|
+| `edge` | 좋음 | Python + `edge-tts`, 인터넷 연결 | 배포 전 서비스 이용 조건 확인 |
 | `windows` | 낮음 (기계음) | 없음 — 윈도우에 이미 있음 | 자유 |
 | `melotts` | 준수 | 파이썬 + pip 설치 | **MIT — 자유** |
 | `dev` | 목소리 없음 | 없음 | 점검용 |
 
-**권장 순서는 `windows` → `melotts` 입니다.**
-먼저 Windows 내장 음성으로 파이프라인이 도는지 확인하고, 그다음 목소리만 갈아 끼우세요.
-처음부터 MeloTTS로 가면 문제가 생겼을 때 설치 문제인지 배선 문제인지 구분이 안 됩니다.
+기본 제공자는 `edge`입니다. 인터넷 연결이 없거나 Edge TTS를 사용할 수 없으면 `melotts`,
+설치 상태만 확인할 때는 `windows` 또는 `dev`를 사용하세요.
 목소리를 바꿔도 고칠 코드는 없습니다 — `index.json` 이 다시 만들어지고 화면이 따라갑니다.
+
+### Edge TTS 설치
+
+```
+python -m pip install edge-tts
+```
+
+기본 한국어 음성은 `ko-KR-SunHiNeural`입니다. `EDGE_TTS_VOICE`로 음성을,
+`EDGE_TTS_RATE`로 속도를 바꿀 수 있습니다. 예: `EDGE_TTS_RATE=+15%`.
+Edge TTS는 API 키가 필요 없지만 온라인 서비스에 연결되므로 배포 목적에 맞는 이용 조건을 확인하세요.
 
 ### MeloTTS 설치
 
@@ -83,14 +94,8 @@ pip install g2pkk
 
 CPU로 실시간 처리되므로 그래픽카드가 필요 없습니다.
 
-### 쓰지 않는 것
-
-**edge-tts는 넣지 않았습니다.** 무료 한국어 TTS로 가장 많이 쓰이지만,
-npm 패키지가 CC BY-NC-SA(비상업 전용)이고 파이썬판은 GPL입니다.
-게다가 마이크로소프트의 비공식 엔드포인트를 쓰는 방식이라, 사업용 영상에 쓰면 두 겹으로 걸립니다.
-
-품질이 더 필요하면 구글·애저 클라우드 TTS의 무료 티어를 각자 키로 붙이는 쪽이 안전합니다.
-그 경우 키는 `.env` 에 두고 절대 커밋하지 마세요.
+품질이나 사용 조건 때문에 공식 상용 TTS가 필요하면 각자 발급받은 키로 제공자를 추가하세요.
+키는 `.env`에 두고 절대 커밋하지 마세요.
 
 ---
 
