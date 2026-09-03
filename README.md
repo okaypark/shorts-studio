@@ -11,14 +11,40 @@
 
 ## 처음 한 번만 하면 되는 준비
 
-1. **Node.js 설치** — [nodejs.org](https://nodejs.org)에서 LTS 버전
-2. **폴더 위치** — `C:\shorts-studio` 처럼 **짧고 영문인 경로**에 둡니다
-   (Windows는 경로가 길거나 한글이 섞이면 설치가 실패합니다)
-3. **설치** — AI에게 "설치해줘"라고 하거나:
+### AI에게 맡기는 방법 (권장)
 
+터미널을 직접 사용할 필요가 없습니다. Codex 또는 Claude에
+[`ENVIRONMENT_SETUP_PROMPT.md`](./ENVIRONMENT_SETUP_PROMPT.md)의 전체 내용을 보내고 실행을 요청하세요.
+
+예를 들어 다음과 같이 말하면 됩니다.
+
+> 이 환경세팅 프롬프트대로 설치와 검증을 진행해줘. 필요한 명령은 직접 실행하고,
+> 권한 승인이나 로그인처럼 내가 해야 하는 작업이 있을 때만 알려줘.
+
+AI가 다음 작업을 순서대로 진행합니다.
+
+1. Windows의 실제 **내 문서(Documents)** 경로 확인
+2. `내 문서\shorts-studio`에 이 저장소 설치 또는 기존 저장소의 변경 사항 점검
+3. Git, Node.js 20 이상, npm과 Remotion 의존성 설치
+4. Edge TTS(기본), OpenVoice V2(내 목소리), MeloTTS(로컬 대체), ElevenLabs SDK(선택) 설치·점검
+5. Remotion Studio 실행 및 샘플 MP4 렌더링 검증
+
+설치 중 관리자 권한, GitHub 로그인 또는 ElevenLabs API 키가 필요한 경우에만 AI의 안내에 따라
+진행하세요. ElevenLabs는 API 키와 유료 사용 승인이 없으면 호출하지 않습니다. 내 목소리 기능은
+본인이 직접 녹음했거나 사용 허가를 받은 10~30초 음성 샘플을 준비한 뒤 등록합니다.
+
+### 직접 설치하는 방법
+
+1. **Node.js 설치** — [nodejs.org](https://nodejs.org)에서 LTS 20 이상 버전
+2. **폴더 위치** — Windows의 내 문서 폴더 아래 `shorts-studio`에 둡니다
+3. **설치** — 저장소 폴더에서 다음 명령을 실행합니다.
+
+   ```powershell
+   npm ci
    ```
-   npm install
-   ```
+
+`package-lock.json`이 없을 때만 `npm install`을 사용하세요. TTS까지 포함한 전체 설치와 검증은
+위 환경세팅 프롬프트를 사용하는 방법이 가장 간단합니다.
 
 ---
 
