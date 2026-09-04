@@ -1,11 +1,15 @@
 ---
 name: high-quality-shorts
-description: Plan, create, revise, or audit vertical Shorts, Reels, and TikTok videos with strong visual hierarchy, varied art direction, readable Korean typography, product-forward composition, audio-first timing, and rendered-frame verification. Use for product, health, educational, story, and promotional short-form video work in this workspace.
+description: Plan, create, revise, or audit vertical Shorts, Reels, and TikTok videos that quickly deliver product information, create curiosity and purchase desire, use bold centered visual hierarchy, maintain fast social pacing, vary art direction, and verify rendered frames. Use for product, health, educational, story, and promotional short-form video work in this workspace.
 ---
 
 # High-quality Shorts
 
 Create a video that reads instantly on a phone, feels native to a social feed, and is visibly different from recent work. Preserve the user's platform, audience, product, tone, claims, assets, and publishing boundaries.
+
+## North star
+
+For product content, optimize the whole video for this sequence: **understand the product -> become curious -> want to try or buy it**. Every scene must either clarify the product, increase curiosity, demonstrate relevance, or move the viewer toward the next action. Remove anything that merely decorates or makes the video resemble a presentation.
 
 ## Route the job
 
@@ -20,6 +24,8 @@ Create a video that reads instantly on a phone, feels native to a social feed, a
 - Vary visual grammar across videos: creator-led, product macro, editorial collage, kinetic type, comic, paper-cut, miniature, hands-on demo, diagram, or cinematic lifestyle. Use one primary language and at most one supporting language per video.
 - Record or inspect recent choices before designing. Change at least three of: medium, composition, palette, hook device, caption behavior, transition, camera distance, and background treatment.
 - Do not confuse variety with clutter. Each scene has one dominant subject, one reading order, and one message.
+- Default to a bold central composition for product, hook, and major keywords. Depart from center only when a supplied shot or deliberate motion creates a stronger hierarchy.
+- Build rhythm with visible changes every 1-2.5 seconds: crop, product scale, camera distance, kinetic keyword, reaction, or scene action. Do not rely on slow fades and static slides.
 
 ## Production sequence
 
@@ -38,6 +44,7 @@ Create a video that reads instantly on a phone, feels native to a social feed, a
 - Headline, product/face, and subtitles cannot compete for the same slot. Reposition captions scene by scene when the subject moves.
 - Korean text uses the workspace `korean` style and manual meaning-based line breaks.
 - Prefer one bold headline plus short phrase captions. Do not place a full narration paragraph at the bottom of every scene.
+- The video must feel edited for Shorts: large central subject, oversized key phrases, rapid visual progression, and immediate payoff. Section numbers, tiny English labels, report headings, grids, and repeated title cards are presentation signals and should be removed unless essential to the concept.
 - Keep critical elements outside the platform UI zones. For a common 1080x1920 master, avoid the top 10%, bottom 25%, and right 10% unless the target platform has a verified safer layout.
 
 ## Completion report
