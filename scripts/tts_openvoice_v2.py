@@ -37,6 +37,8 @@ def register(args: argparse.Namespace) -> None:
 
 
 def synthesize(args: argparse.Namespace) -> None:
+    import torch
+
     base = Path(args.base).resolve()
     output = Path(args.output).resolve()
     target = profile_path(args.profile)
@@ -44,8 +46,11 @@ def synthesize(args: argparse.Namespace) -> None:
     if not base.is_file() or not target.is_file() or not source.is_file():
         raise FileNotFoundError("Base WAV, registered profile, or Korean source embedding is missing.")
     output.parent.mkdir(parents=True, exist_ok=True)
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    source_se = torch.load(source, map_location=device)
+    target_se = torch.load(target, map_location=device)
     converter().convert(
-        audio_src_path=str(base), src_se=str(source), tgt_se=str(target), output_path=str(output), message="@shorts-studio",
+        audio_src_path=str(base), src_se=source_se, tgt_se=target_se, output_path=str(output), message="@shorts-studio",
     )
     print(f"Synthesized: {output}")
 
