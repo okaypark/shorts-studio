@@ -2,6 +2,8 @@
 
 Codex는 먼저 [`CLAUDE.md`](./CLAUDE.md)와
 [`docs/SHORTS-PRODUCTION-GUIDE.md`](./docs/SHORTS-PRODUCTION-GUIDE.md)를 모두 읽고 적용하세요.
+쇼츠를 기획·생성·수정·검수할 때는 프로젝트 스킬
+[`high-quality-shorts`](./.agents/skills/high-quality-shorts/SKILL.md)도 함께 읽고 적용하세요.
 충돌하면 쇼츠 제작 흐름·플랫폼·음성·자막·검증에는 최종 제작 지침을 우선하고,
 저장소 구조와 컴포넌트 사용법에는 `CLAUDE.md`를 적용합니다.
 
