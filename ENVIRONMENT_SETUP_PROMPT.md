@@ -94,6 +94,9 @@ conda run -n openvoice python -m pip install edge-tts
 
 ## 6. OpenVoice V2와 내 목소리 등록
 
+- Codex 앱에서 사용자가 내 목소리 사용을 요청하면, 음성 대화 기능을 음성 복제로 오인하지 않도록 안내하세요. 사용자에게 이 채팅에 본인 음성 파일(WAV·MP3·M4A)을 첨부하도록 요청하고, 본인 또는 명시적 허가를 받은 음성인지 확인하세요.
+- 등록 전 사용자에게 진행 순서를 짧게 안내하세요: `파일 첨부 → 원본 보관·정규화 → 음색 프로필 생성 → 내 목소리로 테스트 음성 생성 → 쇼츠 음성에 적용`.
+- 음성 원본과 프로필은 로컬의 `voice_samples/`, `voice_profiles/`에만 보관하고 `.gitignore`에 반드시 추가하세요. 파일명·경로를 포함해 Git 커밋·푸시·외부 공유를 하지 마세요.
 - 공식 OpenVoice 문서 또는 공식 Hugging Face의 V2 체크포인트만 사용하고 아래 파일을 확인하세요.
 
 ```text
@@ -114,11 +117,12 @@ conda run -n openvoice python -m pip install edge-tts
 - 참조 음성이 없다면 설치는 완료하고, 사용자가 직접 녹음한 음성을 선택하도록 안내하세요.
 - 권장 샘플은 조용한 환경, 배경음악 없음, 한 명만 발화, 10~30초입니다.
 - WAV·MP3·M4A 입력을 지원하고 FFmpeg로 mono 22,050Hz PCM WAV를 생성하세요. 원본은 보존하고 기존 파일을 덮어쓰지 마세요.
-- `openvoice.se_extractor.get_se()`로 target speaker embedding을 추출해 `voice_profiles\my_voice\se.pth`에 캐시하세요.
+- 깨끗한 단일 화자 10~30초 참조 음성은 `ToneColorConverter.extract_se()` 또는 `openvoice.se_extractor.get_se()`로 target speaker embedding을 추출해 `voice_profiles\my_voice\se.pth`에 캐시하세요. Windows에서 선택형 Whisper/VAD 의존성 설치가 불안정하면 전자를 사용하세요.
 - 기본적으로 Edge TTS로 한국어 base 음성을 만든 후 WAV로 변환하고, OpenVoice V2 `ToneColorConverter`로 사용자의 음색을 적용하세요.
 - Edge TTS 연결에 실패하거나 완전 로컬 처리가 필요한 경우에만 MeloTTS로 base 음성을 생성하세요.
 - source embedding은 `checkpoints_v2\base_speakers\ses\kr.pth`, target embedding은 사용자 `se.pth`를 사용하세요.
 - 저장소에 해당 CLI가 없다면 기존 구조를 존중해 `scripts/tts_openvoice_v2.py` 또는 동등한 모듈을 구현하세요.
+- `npm run voice -- <slug> --provider openvoice-v2`가 Edge TTS로 한국어 base 음성을 만든 뒤 OpenVoice V2로 변환하도록 음성 제공자를 연결하세요. 기본 프로필은 `my_voice`로 두되 `OPENVOICE_PROFILE` 환경 변수로 바꿀 수 있게 하세요.
 
 ```powershell
 conda run -n openvoice python scripts/tts_openvoice_v2.py register --reference "voice_samples/my_voice/reference.wav" --profile "my_voice"

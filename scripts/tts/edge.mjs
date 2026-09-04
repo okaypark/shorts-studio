@@ -5,11 +5,14 @@
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { join } from "node:path";
+import { existsSync } from "node:fs";
 
 const run = promisify(execFile);
-const PY = process.platform === "win32"
+const systemPython = process.platform === "win32"
   ? join(process.env.LOCALAPPDATA ?? "", "Programs", "Python", "Python311", "python.exe")
   : "python3";
+const bundledPython = join(process.cwd(), ".tools", "miniconda", "envs", "openvoice", process.platform === "win32" ? "python.exe" : "bin/python");
+const PY = existsSync(systemPython) ? systemPython : (existsSync(bundledPython) ? bundledPython : systemPython);
 
 export const name = "edge";
 export const label = "Edge TTS 한국어 (온라인)";

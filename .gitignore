@@ -5,3 +5,7 @@ out/
 .DS_Store
 Thumbs.db
 *.log
+voice_samples/
+voice_profiles/
+third_party/OpenVoice/
+.tools/

@@ -62,6 +62,7 @@ npm run voice -- <슬러그> --provider edge      (기본값)
 npm run voice -- <슬러그> --provider melotts
 npm run voice -- <슬러그> --provider windows
 npm run voice -- <슬러그> --provider dev
+npm run voice -- <슬러그> --provider openvoice-v2
 ```
 
 | 제공자 | 품질 | 설치 | 상업 이용 |
@@ -74,6 +75,18 @@ npm run voice -- <슬러그> --provider dev
 기본 제공자는 `edge`입니다. 인터넷 연결이 없거나 Edge TTS를 사용할 수 없으면 `melotts`,
 설치 상태만 확인할 때는 `windows` 또는 `dev`를 사용하세요.
 목소리를 바꿔도 고칠 코드는 없습니다 — `index.json` 이 다시 만들어지고 화면이 따라갑니다.
+
+### 내 목소리 (OpenVoice V2)
+
+Codex 앱의 음성 대화는 작업 지시용이며, 쇼츠용 음성 복제는 별도 등록 과정이 필요합니다.
+본인 또는 명시적으로 사용 허가를 받은 10~30초 녹음 파일을 채팅에 첨부하면, 아래 순서로 처리합니다.
+
+1. 원본을 `voice_samples/<프로필>/reference-original.*`에 보관하고 22,050Hz 모노 WAV로 정규화합니다.
+2. OpenVoice V2가 `voice_profiles/<프로필>/se.pth` 음색 프로필을 만듭니다.
+3. `npm run voice -- <슬러그> --provider openvoice-v2`로 Edge TTS의 한국어 base 음성에 그 프로필을 적용합니다.
+
+기본 프로필 이름은 `my_voice`이고, 다른 프로필은 `OPENVOICE_PROFILE=<이름>`으로 선택합니다.
+원본과 프로필은 개인 정보이므로 Git에 포함하지 않습니다.
 
 ### Edge TTS 설치
 
